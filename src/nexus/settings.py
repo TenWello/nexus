@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,17 +78,18 @@ WSGI_APPLICATION = 'nexus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+load_dotenv()  # .env faylini yuklaydi
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # or 'django.db.backends.mysql', etc.
-        'NAME': 'NAME',
-        'USER': 'USER',
-        'PASSWORD': 'PASSWORD',
-        'HOST': 'HOST',  # or your database host
-        'PORT': 'PORT',  # or your database port
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': int(os.getenv('PORT')),  # Raqam sifatida o‘qish kerak!
     }
 }
-
 
 
 # Password validation
