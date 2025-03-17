@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@-&or$9c%x$v$a6m9z5^us0+f(e($vcx4hd31qf_2%i6pp%796'
+SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'nexus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # or 'django.db.backends.mysql', etc.
-        'NAME': 'nexus_db',
-        'USER': 'postgres',
-        'PASSWORD': '1337',
-        'HOST': 'localhost',  # or your database host
-        'PORT': '5432',  # or your database port
+        'NAME': 'NAME',
+        'USER': 'USER',
+        'PASSWORD': 'PASSWORD',
+        'HOST': 'HOST',  # or your database host
+        'PORT': 'PORT',  # or your database port
     }
 }
 
