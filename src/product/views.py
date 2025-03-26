@@ -1,4 +1,3 @@
-
 from django.shortcuts import render
 from django.db.models import Prefetch
 from django.core.paginator import Paginator
@@ -23,6 +22,7 @@ def product_list(request):
 def product_detail(request, pk):
     product = Product.objects.get(pk=pk)
     ctx = {
-
+        "product": product
     }
     return render(request, 'detail.html', ctx)
+

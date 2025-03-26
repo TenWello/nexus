@@ -137,11 +137,9 @@
                         <form class="woocommerce-ordering" method="post">
                             <label>
                                 <select name="order" class="orderby">
-                                    <option selected="selected" value="menu-order">49 items</option>
-                                    <option value="popularity">popularity</option>
-                                    <option value="popularity">Average ration</option>
-                                    <option value="popularity">newness</option>
-                                    <option value="popularity">price</option>
+                                    <option selected="selected" value="menu-order">10 items</option>
+                                    <option value="popularity">20 items</option>
+                                    <option value="popularity">30 items</option>
                                 </select>
                             </label>
                         </form>
@@ -172,8 +170,13 @@
                                                 <span class="bg-green"><i class="lni-heart"></i></span>
                                                 <span><i class="lni-bookmark"></i></span>
                                             </div>
-                                            <a href="#"><img class="img-fluid"  src="/images/{{product.main_images.0.image}}"
-                                                             alt=""></a>
+                                            <a href="#">
+                                                {% if product.main_images.0.image %}
+                                                <img class="img-fluid" src="{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
+                                            {% else %}
+                                                <img class="img-fluid" src="/static/default-image.jpg" alt="Default Image">
+                                            {% endif %}
+                                            </a>
                                         </figure>
                                         <div class="feature-content">
                                             <div class="product">
@@ -191,7 +194,7 @@
                                                         <a href="#"><i class="lni-tag"></i> {{product.brand}}</a>
                                                         </span>
                                                                                                     </div>
-                                            <p class="dsc">{{ product.description}}</p>
+                                            <p class="dsc">{{ product.short_description}}</p>
                                             <div class="listing-bottom">
                                                 <h3 class="price float-left">${{ product.price }}</h3>
                                                 <a href="ads-details.html" class="btn btn-common float-right">View
@@ -209,14 +212,12 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="featured-box">
                                         <figure>
-                                                <span class="price-save"                    >
-10% Save
-</span>
+{#                                                <span class="price-save">10% Save</span>#}
                                             <div class="icon">
                                                 <span class="bg-green"><i class="lni-heart"></i></span>
                                                 <span><i class="lni-bookmark"></i></span>
                                             </div>
-                                            <a href="#"><img class="img-fluid" src="/images/{{product.main_images.0.image}}"
+                                            <a href="#"><img class="img-fluid" src="{{ product.main_images.0.image.url }}"
                                                              alt=""></a>
                                         </figure>
                                         <div class="feature-content">
@@ -226,20 +227,21 @@
                                             <h4><a href="ads-details.html">{{ product.title }}</a></h4>
                                             <div class="meta-tag">
 <span>
-                                                    <a href="#"><i class="lni-user"></i> John Smith</a>
+                                                    <a href="#"><i class="lni-user"></i>{{ product.user }}</a>
                                                     </span>
                                                                                                     <span>
-                                                    <a href="#"><i class="lni-map-marker"></i> New York, US</a>
+                                                    <a href="#"><i class="lni-map-marker"></i>{{ product.location}}</a>
                                                     </span>
                                                                                                     <span>
-                                                    <a href="#"><i class="lni-tag"></i> Apple</a>
+                                                    <a href="#"><i class="lni-tag"></i>{{product.brand}}</a>
                                                     </span>
                                                                                                 </div>
-                                            <p class="dsc">{{ product.description }}</p>
+                                            <p class="dsc">{{ product.short_description }}</p>
                                             <div class="listing-bottom">
                                                 <h3 class="price float-left">${{ product.price }}</h3>
-                                                <a href="ads-details.html" class="btn btn-common float-right">View
-                                                    Details</a>
+                                                <a href="{% url 'product-detail' product.id %}" class="btn btn-common float-right">
+                                                    View Details
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -249,28 +251,24 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="pagination-bar">
                     <nav>
                         <ul class="pagination justify-content-center">
-                             {% if page_obj.has_previous %}
-                                <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
-                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page=1">&laquo; birinchi</a></li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">oldingi</a></li>
                             {% endif %}
 
+                            <li class="page-item disabled">
+                                <span class="page-link">
+                                    Sahifa {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}.
+                                </span>
+                            </li>
+
                             {% if page_obj.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                            </li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">keyingi</a></li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">oxirgi &raquo;</a></li>
                             {% endif %}
-<!--                            <li class="page-item"><a class="page-link active" href="#">1</a></li>-->
-<!--                            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-<!--                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--                            <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
                         </ul>
                     </nav>
                 </div>

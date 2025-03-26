@@ -16,6 +16,7 @@ class Product(models.Model):
         (3, "SOLD")
     ]
     title = models.CharField(max_length=200, null=False, blank=False)
+    short_description = models.TextField(null=False, blank=False)
     description = models.TextField(null=False, blank=False)
     location = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, blank=False)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=False)
@@ -42,5 +43,5 @@ class ProductView(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='')
+    image = models.ImageField(upload_to='product_images/')
     is_main = models.BooleanField(default=False)

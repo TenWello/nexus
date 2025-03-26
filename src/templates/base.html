@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -52,8 +53,13 @@
                         <a class="google" href="#"><i class="lni-google-plus"></i></a>
                     </div>
                     <div class="header-top-right float-right">
-                        <a href="login.html" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
+                        {% if user.is_authenticated %}
+                        <a href class="header-top-button"><i class="lni-lock"></i>{{ user.firstname }}</a> |
+                        <a href="{% url 'logout' %}" class="header-top-button"><i class="lni-logout"></i> Log Out</a>
+                        {% else %}
+                        <a href="{% url 'login'%}" class="header-top-button"><i class="lni-lock"></i> Log In</a> |
                         <a href="register.html" class="header-top-button"><i class="lni-pencil"></i> Register</a>
+                        {% endif  %}
                     </div>
                 </div>
             </div>
@@ -76,16 +82,17 @@
             </div>
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-center">
-                    <li class="nav-item active">
-                        <a class="nav-link dropdown-toggle" href="{% url 'main' %}" >
+                   <li class="nav-item {% if request.resolver_match.url_name == 'main' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'main' %}">
                             Home
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product-list'%}">
+                    <li class="nav-item {% if request.resolver_match.url_name == 'product-list' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'product-list' %}">
                             Products
                         </a>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="false">
@@ -260,7 +267,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="site-info text-center">
-                        <p><a href="https://templatespoint.net/" rel="nofollow">&copy; All rights reserved | Copyright ©2025</a></p>
+                        <p><a href="link_here" rel="nofollow">@ All Right Reserved | Created by Fayziev</a></p>
                     </div>
                 </div>
             </div>
@@ -279,7 +286,7 @@
 </div>
 
 
-<!--<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>-->
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="{% static 'js/jquery-min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -294,4 +301,5 @@
 <script src="{% static 'js/contact-form-script.min.js' %}"></script>
 <script src="{% static 'js/summernote.js' %}"></script>
 </body>
+
 </html>

@@ -27,59 +27,52 @@
 <div id="owl-demo" class="owl-carousel owl-theme">
 <div class="item">
 <div class="product-img">
-<img class="img-fluid" src="assets/img/productinfo/img1.jpg" alt="">
+<img class="img-fluid" src="/media/{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
 </div>
-<span class="price">$1,550</span>
-</div>
-<div class="item">
-<div class="product-img">
-<img class="img-fluid" src="assets/img/productinfo/img3.jpg" alt="">
-</div>
-<span class="price">$1,550</span>
+<span class="price">${{ product.price }}</span>
 </div>
 <div class="item">
 <div class="product-img">
-<img class="img-fluid" src="assets/img/productinfo/img2.jpg" alt="">
+<img class="img-fluid" src="{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
 </div>
-<span class="price">$1,550</span>
+<span class="price">${{ product.price }}</span>
+</div>
+<div class="item">
+<div class="product-img">
+
+<img class="img-fluid" src="/media/{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
+</div>
+<span class="price">${{ product.price }}</span>
 </div>
 </div>
 </div>
 <div class="details-box">
 <div class="ads-details-info">
-<h2>Apple MF839LL/A MacBook Pro 13.3-Inch Laptop</h2>
+<h2>{{ product.title }}</h2>
 <div class="details-meta">
-<span><a href="#"><i class="lni-alarm-clock"></i> 7 Jan, 10:10 pm</a></span>
-<span><a href="#"><i class="lni-map-marker"></i> New York</a></span>
+<span><a href="#"><i class="lni-alarm-clock"></i>{{ product.updated_at }}</a></span>
+<span><a href="#"><i class="lni-map-marker"></i>{{ product.location}}</a></span>
 <span><a href="#"><i class="lni-eye"></i> 299 View</a></span>
 </div>
-<p class="mb-4">Up for sale we have a vintage Raleigh Sport Men’s Bicycle. This bike does have some general wear and surface corrosion on some of the parts but is overall in good shape. It has been checked out and does work. Brakes and gears work. Seat is fully intact. Frame and fenders are in nice shape with minimal wear. A few minor dents in the fenders but most of the paint is intact. This vintage bicycle is very well preserved and can be used the way it is or fully restored if you would like it to look newer.</p>
+<p class="mb-4">{{ product.description}}</p>
 <h4 class="title-small mb-3">Specification:</h4>
 <ul class="list-specification">
-<li><i class="lni-check-mark-circle"></i> 256GB PCIe flash storage</li>
-<li><i class="lni-check-mark-circle"></i> 2.7 GHz dual-core Intel Core i5</li>
-<li><i class="lni-check-mark-circle"></i> Turbo Boost up to 3.1GHz</li>
-<li><i class="lni-check-mark-circle"></i> Intel Iris Graphics 6100</li>
-<li><i class="lni-check-mark-circle"></i> 8GB memory</li>
-<li><i class="lni-check-mark-circle"></i> 10 hour battery life</li>
-<li><i class="lni-check-mark-circle"></i> 13.3" Retina Display</li>
-<li><i class="lni-check-mark-circle"></i> 1 Year international warranty</li>
+<li><i class="lni-check-mark-circle"></i>{{ product.short_description }}</li>
 </ul>
-<p class="mb-4">
-Up for sale we have a vintage Raleigh Sport Men’s Bicycle. This bike does have some general wear and surface corrosion on some of the parts but is overall in good shape. It has been checked out and does work. Brakes and gears work. Seat is fully intact. Frame and fenders are in nice shape with minimal wear. A few minor dents in the fenders but most of the paint is intact.
-</p>
+    <br><br>
+<h4 class="title-small mb-3">Price: ${{ product.price }}</h4>
 </div>
 <div class="tag-bottom">
 <div class="float-left">
 <ul class="advertisement">
 <li>
-<p><strong><i class="lni-folder"></i> Categories:</strong> <a href="#">Electronics</a></p>
+<p><strong><i class="lni-folder"></i> Categories:</strong> <a href="#">{{ product.category }}</a></p>
 </li>
 <li>
-<p><strong><i class="lni-archive"></i> Condition:</strong> New</p>
+<p><strong><i class="lni-archive"></i> Condition:</strong> {{ product.condition }}</p>
 </li>
 <li>
-<p><strong><i class="lni-package"></i> Brand:</strong> <a href="#">Apple</a></p>
+<p><strong><i class="lni-package"></i> Brand:</strong> <a href="#">{{product.brand}}</a></p>
 </li>
 </ul>
 </div>
