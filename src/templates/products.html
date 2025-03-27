@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block header %}
-<div id="hero-area">
+<div id="hero-area" >
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -20,30 +20,25 @@
                                     <div class="select">
                                         <select>
                                             <option value="none">All Locations</option>
-                                            <option value="none">New York</option>
-                                            <option value="none">California</option>
-                                            <option value="none">Washington</option>
-                                            <option value="none">Birmingham</option>
-                                            <option value="none">Chicago</option>
-                                            <option value="none">Phoenix</option>
+                                            {% for product in products %}
+                                            <option value="none">{{ product.location }}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group inputwithicon">
                                     <i class="lni-menu"></i>
                                     <div class="select">
-                                        <select>
-                                            <option value="none">Select Categories</option>
-                                            <option value="none">Mobiles</option>
-                                            <option value="none">Electronics</option>
-                                            <option value="none">Training</option>
-                                            <option value="none">Real Estate</option>
-                                            <option value="none">Services</option>
-                                            <option value="none">Training</option>
-                                            <option value="none">Vehicles</option>
-                                        </select>
+                                            <select>
+                                                <option value="none">Select Catagory</option>
+                                                {% for ctg in categories %}
+                                                    <option value="none">{{ ctg.name }}</option>
+                                                {% endfor %}
+                                            </select>
                                     </div>
                                 </div>
+
+
                                 <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now
                                 </button>
                             </form>
@@ -121,7 +116,7 @@
                     <div class="widget">
                         <h4 class="widget-title">Advertisement</h4>
                         <div class="add-box">
-                            <img class="img-fluid" src="assets/img/img1.jpg" alt="">
+                            <img class="img-fluid" src="/static/img/img1.jpg" alt="">
                         </div>
                     </div>
                 </aside>
@@ -134,15 +129,20 @@
                     </div>
                     <div class="Show-item">
                         <span>Show Items</span>
-                        <form class="woocommerce-ordering" method="post">
+                        <form class="woocommerce-ordering" method="get">
                             <label>
-                                <select name="order" class="orderby">
-                                    <option selected="selected" value="menu-order">10 items</option>
-                                    <option value="popularity">20 items</option>
-                                    <option value="popularity">30 items</option>
+                                <select name="order" class="orderby" onchange="this.form.submit()">
+                                    {% for item in item_counts %}
+                                        <option value="{{ item }}" {% if selected_count|slugify == item|slugify %}selected{% endif %}>
+                                            {{ item }} items
+                                        </option>
+                                    {% endfor %}
                                 </select>
                             </label>
                         </form>
+
+
+
                     </div>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -174,7 +174,7 @@
                                                 {% if product.main_images.0.image %}
                                                 <img class="img-fluid" src="{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
                                             {% else %}
-                                                <img class="img-fluid" src="/static/default-image.jpg" alt="Default Image">
+                                                <img class="img-fluid" src="{/static/default-image.jpg" alt="Default Image">
                                             {% endif %}
                                             </a>
                                         </figure>
