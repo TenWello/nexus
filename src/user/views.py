@@ -20,8 +20,6 @@ def login_view(request):
     }
     return render(request, 'login.html', ctx)
 
-def register(request):
-    pass
 
 def register(request):
     if request.method == 'POST':

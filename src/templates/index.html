@@ -21,12 +21,9 @@
                                         <div class="select">
                                             <select>
                                                 <option value="none">Locations</option>
-                                                <option value="none">New York</option>
-                                                <option value="none">California</option>
-                                                <option value="none">Washington</option>
-                                                <option value="none">Birmingham</option>
-                                                <option value="none">Chicago</option>
-                                                <option value="none">Phoenix</option>
+                                                {% for location in locations %}
+                                                <option value="none">{{ location }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <i class="lni-target"></i>
@@ -59,13 +56,13 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12 col-xs-12">
                 <div id="categories-icon-slider" class="categories-wrapper owl-carousel owl-theme">
-                    {% for ctg in categories %}
+                    {% for ctg in categories|dictsortreversed:"name"|slice:":3" %}
                         <div class="item">
-                            <a href="category.html">
+                            <a href="{% url 'product-list' %}">
                                 <div class="category-icon-item">
                                     <div class="icon-box">
                                         <div class="icon">
-{#                                            <img src="/images/{{ ctg.image }}" alt="No Image Available">#}
+                                            <img src="/media/{{ ctg.image }}" alt="No Image Available">
 
                                         </div>
                                         <h4>{{ ctg.name }}</h4>

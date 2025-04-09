@@ -9,13 +9,12 @@ class LoginForm(forms.Form):
     username = forms.CharField(max_length=50,
                                widget=forms.TextInput(attrs={'class': "form-control", "placeholder": "Username"}))
     password = forms.CharField(max_length=20,
-                               widget=forms.PasswordInput(attrs={'class': "form-control", "placeholder": "Password"}))
-
+    widget=forms.PasswordInput(attrs={'class': "form-control", "placeholder": "Password"}))
 class RegisterForm(UserCreationForm):
     firstname = forms.CharField(max_length=50,
-                                widget=forms.TextInput(attrs={'class': "form-control", "placeholder": "Firstname"}))
+    widget=forms.TextInput(attrs={'class': "form-control", "placeholder": "Firstname"}))
     username = forms.CharField(max_length=50,
-                               widget=forms.TextInput(attrs={'class': "form-control", "placeholder": "Username"}))
+    widget=forms.TextInput(attrs={'class': "form-control", "placeholder": "Username"}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': "form-control", "placeholder": "Email"}))
 
     class Meta:

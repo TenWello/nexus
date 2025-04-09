@@ -20,9 +20,9 @@
                                     <div class="select">
                                         <select>
                                             <option value="none">All Locations</option>
-                                            {% for product in products %}
-                                            <option value="none">{{ product.location }}</option>
-                                            {% endfor %}
+                                                {% for location in locations %}
+                                                    <option value="none">{{ location }}</option>
+                                                {% endfor %}
                                         </select>
                                     </div>
                                 </div>
@@ -31,10 +31,11 @@
                                     <div class="select">
                                             <select>
                                                 <option value="none">Select Catagory</option>
-                                                {% for ctg in categories %}
-                                                    <option value="none">{{ ctg.name }}</option>
+                                                {% for category in categories %}
+                                                    <option value="none">{{ category.name }}</option>
                                                 {% endfor %}
                                             </select>
+
                                     </div>
                                 </div>
 
@@ -69,48 +70,13 @@
                     <div class="widget categories">
                         <h4 class="widget-title">All Categories</h4>
                         <ul class="categories-list">
+                            {% for category in categories %}
                             <li>
                                 <a href="#">
-                                    <i class="lni-dinner"></i>
-                                    Hotel & Travels <span class="category-counter">(5)</span>
+                                    <i class="lni-laptop"></i>{{ category.name }}<span class="category-counter">({{ category.product_count }})</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-control-panel"></i>
-                                    Services <span class="category-counter">(8)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-github"></i>
-                                    Pets <span class="category-counter">(2)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-coffee-cup"></i>
-                                    Restaurants <span class="category-counter">(3)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-home"></i>
-                                    Real Estate <span class="category-counter">(4)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-pencil"></i>
-                                    Jobs <span class="category-counter">(5)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-display"></i>
-                                    Electronics <span class="category-counter">(9)</span>
-                                </a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="widget">
@@ -174,7 +140,7 @@
                                                 {% if product.main_images.0.image %}
                                                 <img class="img-fluid" src="{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
                                             {% else %}
-                                                <img class="img-fluid" src="{/static/default-image.jpg" alt="Default Image">
+                                                <img class="img-fluid" src="/static/default-image.jpg" alt="Default Image">
                                             {% endif %}
                                             </a>
                                         </figure>

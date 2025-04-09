@@ -1,3 +1,5 @@
+from itertools import count
+
 from django.db import models
 from category.models import Region, Category, Brand
 from user.models import Profile
@@ -26,6 +28,7 @@ class Product(models.Model):
     status = models.SmallIntegerField(choices=status_types, default=1)
     price = models.IntegerField(null=True, blank=True)
     price_on_call = models.BooleanField(default=False)
+
 
     created_at = models.DateTimeField(auto_now=True, editable=False)
     updated_at = models.DateTimeField(auto_now_add=True)

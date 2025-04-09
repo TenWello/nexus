@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import RegionForm
-from .models import Region
-
 
 def region(request):
     if request.method == 'POST':
@@ -14,6 +12,7 @@ def region(request):
             return redirect('region')
     else:
         form = RegionForm()
+
     ctx = {
         'form': form
     }

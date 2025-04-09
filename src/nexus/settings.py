@@ -1,4 +1,5 @@
 import os
+import certifi
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
@@ -22,6 +23,8 @@ INSTALLED_APPS = [
     'category',
     'product',
     'user',
+    'blog',
+
 ]
 
 MIDDLEWARE = [
@@ -91,7 +94,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-import os
+
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -101,4 +104,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+os.environ['SSL_CERT_FILE'] = certifi.where()
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv("EMAIL_HOST")  # Example: smtp.gmail.com
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))  # Default to 587 if not set
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS") == 'True'  # Convert to boolean
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")  # SMTP username
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # SMTP password
+EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL") == 'True'  # Convert to boolean
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")

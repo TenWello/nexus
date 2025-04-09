@@ -25,25 +25,14 @@
 <div class="col-lg-8 col-md-12 col-xs-12">
 <div class="ads-details-wrapper">
 <div id="owl-demo" class="owl-carousel owl-theme">
-<div class="item">
-<div class="product-img">
-<img class="img-fluid" src="/media/{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
-</div>
-<span class="price">${{ product.price }}</span>
-</div>
-<div class="item">
-<div class="product-img">
-<img class="img-fluid" src="{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
-</div>
-<span class="price">${{ product.price }}</span>
-</div>
-<div class="item">
-<div class="product-img">
-
-<img class="img-fluid" src="/media/{{ product.main_images.0.image.url }}" alt="{{ product.title }}">
-</div>
-<span class="price">${{ product.price }}</span>
-</div>
+  {% for image in product.images.all %}
+  <div class="item">
+    <div class="product-img">
+      <img class="img-fluid" src="{{ image.image.url }}" alt="{{ product.title }}">
+    </div>
+    <span class="price">${{ product.price }}</span>
+  </div>
+  {% endfor %}
 </div>
 </div>
 <div class="details-box">
@@ -100,8 +89,10 @@
 <a href="#"><img src="/static/img/productinfo/agent.jpg" alt=""></a>
 </div>
 <div class="agent-details">
-<h3><a href="#">Tahmina Anny</a></h3>
-<span><i class="lni-phone-handset"></i>(123) 123-456</span>
+<h3><a href="#">{{ user }}</a></h3>
+    <span><i class="lni-phone-handset"></i>
+    {{ user.profile.phone_number }}
+</span>
 </div>
 </div>
 <input type="text" class="form-control" placeholder="Your Email">
@@ -112,114 +103,44 @@
 </div>
 
 <div class="widget">
-<h4 class="widget-title">More Ads From Seller</h4>
-<ul class="posts-list">
-<li>
-<div class="widget-thumb">
-<a href="#"><img src="/static/img/details/img1.jpg" alt="ERROR" /></a>
-</div>
-<div class="widget-content">
-<h4><a href="#">Little Harbor Yacht 38</a></h4>
- <div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New Your</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Radio</a>
-</span>
-</div>
-<h4 class="price">$480.00</h4>
-</div>
-<div class="clearfix"></div>
-</li>
-<li>
-<div class="widget-thumb">
-<a href="#"><img src="/static/img/details/img2.jpg" alt="" /></a>
-</div>
-<div class="widget-content">
-<h4><a href="#">Little Harbor Yacht 38</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New Your</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Radio</a>
-</span>
-</div>
-<h4 class="price">$480.00</h4>
-</div>
-<div class="clearfix"></div>
-</li>
-<li>
-<div class="widget-thumb">
-<a href="#"><img src="/static/img/details/img3.jpg" alt="" /></a>
-</div>
-<div class="widget-content">
-<h4><a href="#">Little Harbor Yacht 38</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New Your</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Radio</a>
-</span>
-</div>
-<h4 class="price">$480.00</h4>
-</div>
-<div class="clearfix"></div>
-</li>
-<li>
-<div class="widget-thumb">
-<a href="#"><img src="/static/img/details/img4.jpg" alt="" /></a>
-</div>
-<div class="widget-content">
-<h4><a href="#">Little Harbor Yacht 38</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New Your</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Radio</a>
-</span>
-</div>
-<h4 class="price">$480.00</h4>
-</div>
-<div class="clearfix"></div>
-</li>
-<li>
-<div class="widget-thumb">
-<a href="#"><img src="/static/img/details/img5.jpg" alt="" /></a>
-</div>
-<div class="widget-content">
-<h4><a href="#">Little Harbor Yacht 38</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Smith</a>
-</span>
-<span>
- <a href="#"><i class="lni-map-marker"></i> New Your</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Radio</a>
-</span>
-</div>
-<h4 class="price">$480.00</h4>
-</div>
-<div class="clearfix"></div>
-</li>
-</ul>
+    <h4 class="widget-title">More Ads From Seller</h4>
+    <ul class="posts-list">
+        {% for seller_product in seller_products %}
+        <li>
+            <div class="widget-thumb">
+                <a href="{{ seller_product.get_absolute_url }}">
+                    {% if seller_product.images.first %}
+                    <img src="{{ seller_product.images.first.image.url }}" alt="{{ seller_product.title }}">
+                    {% else %}
+                    <img src="{% static 'img/default-product.png' %}" alt="No image">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="widget-content">
+                <h4><a href="{{ seller_product.get_absolute_url }}">{{ seller_product.title }}</a></h4>
+                <div class="meta-tag">
+                    <span>
+                        <a href="#"><i class="lni-user"></i> {{ user.profile.user }}</a>
+                    </span>
+                    <span>
+                        <a href="#"><i class="lni-map-marker"></i> {{ seller_product.location.name }}</a>
+                    </span>
+
+                </div>
+                <h4 class="price">
+                    {% if seller_product.price %}
+                    ${{ seller_product.price }}
+                    {% else %}
+                    Price on call
+                    {% endif %}
+                </h4>
+            </div>
+            <div class="clearfix"></div>
+        </li>
+        {% empty %}
+        <li>No other products from this seller</li>
+        {% endfor %}
+    </ul>
 </div>
 </aside>
 

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+<div class="page-header" style="background: url(/static/img/banner1.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -40,8 +40,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkedall">
-                                <label class="custom-control-label" for="checkedall">Keep me logged in</label>
+                                <p>Don't have any account? <br> <a class="forgetpassword_left" href="{% url 'register' %}">Register</a></p>
                             </div>
                             <a class="forgetpassword" href="forgot-password.html">Forgot Password?</a>
                         </div>
