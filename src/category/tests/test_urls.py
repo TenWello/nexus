@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 class RegionUrlTest(TestCase):
     def test_region_url(self):
         url= reverse('region')

@@ -13,17 +13,20 @@ DEBUG = os.getenv("DEBUG", True)
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'main',
     'category',
     'product',
     'user',
     'blog',
+    'api',
 
 ]
 
