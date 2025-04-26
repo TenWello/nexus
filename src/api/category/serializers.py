@@ -1,10 +1,9 @@
-from django.template.defaultfilters import slugify
 from rest_framework import serializers
 from category.models import Category
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('is_main', 'name')
+        fields = ('is_main', 'name', )
 
 

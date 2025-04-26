@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-
 from .models import Blog
 
 def blog_views(request):

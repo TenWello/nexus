@@ -5,47 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98de2528-bb6d-4f96-9f65-e2349f471e3e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/blog/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blog/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/category/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/category/tests/test_forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/category/tests/test_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/category/tests/test_urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/category/tests/test_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/product/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/product/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/product/tests/test_forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/blog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/product_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/blog/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/blog/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/blog/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/blog/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/user/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/user/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/user/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blog/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blog/migrations/0003_alter_blog_poster.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blog/migrations/0004_auto_20250423_1839.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/product/api/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/category/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/category/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/category/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nexus/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/nexus/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nexus/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/nexus/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/product/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/product/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/product/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/product/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/product/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/product/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/product/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/product/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Product/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Product/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Product/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Product/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/category/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/category/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blog/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blog/migrations/0002_alter_blog_poster.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog/migrations/0002_alter_blog_poster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +135,13 @@
       <workItem from="1743845681984" duration="3432000" />
       <workItem from="1744082911325" duration="7442000" />
       <workItem from="1744108918933" duration="9306000" />
-      <workItem from="1744195513981" duration="1218000" />
+      <workItem from="1744195513981" duration="8696000" />
+      <workItem from="1744973817801" duration="8290000" />
+      <workItem from="1745305882742" duration="2000" />
+      <workItem from="1745387199630" duration="4673000" />
+      <workItem from="1745405932334" duration="5408000" />
+      <workItem from="1745412907760" duration="3380000" />
+      <workItem from="1745640067567" duration="1263000" />
     </task>
     <servers />
   </component>

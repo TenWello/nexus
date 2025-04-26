@@ -9,7 +9,7 @@ class Blog(models.Model):
     description = models.TextField()
     is_sticky = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
-    poster = models.ImageField(null=False, blank=True)
+    poster = models.ImageField(null=True, blank=True)
     created_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
